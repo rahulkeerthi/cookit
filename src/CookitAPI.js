@@ -10,3 +10,8 @@ export const getKits = () =>
   fetch(`${api}/kits`, { headers })
     .then(res => res.json())
     .then(data => data)
+
+    export const getRestaurants = () =>
+  fetch(`${api}/restaurants`, { headers })
+    .then(res => res.json())
+    .then(data => data)

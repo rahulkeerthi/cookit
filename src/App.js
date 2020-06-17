@@ -1,5 +1,6 @@
 import React from "react";
 import KitLibrary from './KitLibrary';
+import RestaurantLibrary from './RestaurantLibrary';
 import "./scss/main.scss";
 import "./App.scss";
 
@@ -8,17 +9,13 @@ function App() {
 		<div className='App'>
 			<header className='App-header'>
 				<h1>Cookit</h1>
-				<h2>Our kits</h2>
-				<KitLibrary/>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'
-				>
-					Learn React
-				</a>
 			</header>
+			<div className='LibraryContainer'>
+				<h2>Our kits</h2>
+				<KitLibrary pb={2} />
+				<h2>Our restaurants</h2>
+				<RestaurantLibrary pb={2} />
+			</div>
 		</div>
 	);
 }
