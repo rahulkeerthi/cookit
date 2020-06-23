@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { getRestaurants } from './api/CookitAPI';
-import Restaurant from './Restaurant';
+import Box from '@material-ui/core/Box';
+import { getRestaurants } from '../api/CookitAPI';
+import Restaurant from '../components/Restaurant';
 
 class RestaurantLibrary extends Component {
-  constructor {
-    super()
+  constructor() {
+    super();
     this.state = {
       restaurants: [],
     };
@@ -14,14 +15,13 @@ class RestaurantLibrary extends Component {
   componentDidMount() {
     getRestaurants().then((restaurants) => {
       this.setState({ restaurants });
-      console.log(this.state);
     });
   }
 
   render() {
     const { restaurants } = this.state;
     return (
-      <div>
+      <Box>
         <Grid container spacing={4} alignItems="center" justify="space-around" width="80%">
           {restaurants.map((restaurant) => (
             <Grid item key={restaurant.id} xs={12} sm={6} md={4} lg={3} xl={3} zeroMinWidth>
@@ -29,7 +29,7 @@ class RestaurantLibrary extends Component {
             </Grid>
           ))}
         </Grid>
-      </div>
+      </Box>
     );
   }
 }
