@@ -44,10 +44,10 @@ export default function Restaurant({ restaurant }) {
           <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
             {city}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
+          {/* <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
             {kits.length > 1 ? `${kits.length} kits ` : `${kits.length} kit `}
             available
-          </Typography>
+          </Typography> */}
           {/* <Price price={restaurant.price}/> */}
         </CardContent>
       </CardActionArea>
