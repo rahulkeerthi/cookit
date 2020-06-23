@@ -1,6 +1,6 @@
 const api = "https://api-cookit.herokuapp.com";
 
-const token = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1fQ.Zqphmh3IaPRjT13RMMpeyN4tBVssqtTKmCFs28yC_Ls';
+const token = 'INSERT_TOKEN';
 const headers = {
     'Authorization': 'Bearer ' + token,
     'Content-Type': 'application/json', 
