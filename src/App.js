@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "./components/NavBar";
 import logo from "./logo.svg";
 import "./scss/main.scss";
 import "./App.scss";
@@ -6,6 +7,7 @@ import "./App.scss";
 function App() {
 	return (
 		<div className='App'>
+			<NavBar />
 			<header className='App-header'>
 				<img src={logo} className='App-logo' alt='logo' />
 				<p>
