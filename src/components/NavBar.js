@@ -1,25 +1,29 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
   title: {
     flexGrow: 1,
     display: 'none',
+    textDecoration: 'none',
+    color: 'white',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'white',
   },
   search: {
     position: 'relative',
@@ -62,22 +66,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchAppBar() {
+function SearchAppBar() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          />
           <Typography className={classes.title} variant="h6" noWrap>
-            Cookit
+            <Link
+              to="/"
+              style={{ textDecoration: 'none', color: 'white', textTransform: 'uppercase' }}
+            >
+              Cookit
+            </Link>
           </Typography>
+          <Button color="secondary">
+            <Link to="/about" style={{ textDecoration: 'none', color: 'white' }}>
+              About
+            </Link>
+          </Button>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -96,3 +104,5 @@ export default function SearchAppBar() {
     </div>
   );
 }
+
+export default SearchAppBar;

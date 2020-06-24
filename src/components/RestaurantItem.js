@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Restaurant({ restaurant }) {
+export default function RestaurantItem({ restaurant }) {
   const classes = useStyles();
   const { id, photos, name, city, tags, kits } = restaurant;
 
@@ -55,7 +55,7 @@ export default function Restaurant({ restaurant }) {
   );
 }
 
-Restaurant.propTypes = {
+RestaurantItem.propTypes = {
   restaurant: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

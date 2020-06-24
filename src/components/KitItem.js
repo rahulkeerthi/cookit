@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Price from './Price';
 
 const useStyles = makeStyles({
@@ -22,36 +23,34 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Kit({ kit }) {
+export default function KitItem({ kit }) {
   const classes = useStyles();
   const { id, photos, restaurant, name, price } = kit;
 
   return (
-    <Card elevation={3} key={id} className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={photos[0].service_url}
-          title="Contemplative Reptile"
-        />
-        {restaurant.tags.map((tag) => (
-          <Chip key={tag.id} label={tag.name} variant="outlined" margin="1rem" />
-        ))}
-        <CardContent>
-          <Typography gutterBottom component="h2">
-            {name}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
-            {restaurant.name}
-          </Typography>
-          <Price price={price} />
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <Link to={`kit/${id}`} style={{ textDecoration: 'none' }}>
+      <Card elevation={3} key={id} className={classes.root}>
+        <CardActionArea>
+          <CardMedia className={classes.media} image={photos[0].service_url} title={name} />
+          {restaurant.tags.map((tag) => (
+            <Chip key={tag.id} label={tag.name} variant="outlined" margin="1rem" />
+          ))}
+          <CardContent>
+            <Typography gutterBottom component="h2">
+              {name}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
+              {restaurant.name}
+            </Typography>
+            <Price price={price} />
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </Link>
   );
 }
 
-Kit.propTypes = {
+KitItem.propTypes = {
   kit: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
