@@ -4,9 +4,9 @@ import { getKits, getRestaurants } from './api/CookitAPI';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Library from './libraries/Library';
-import Kit from './pages/Kit';
 import RestaurantItem from './components/RestaurantItem';
 import KitItem from './components/KitItem';
+import Kit from './pages/Kit';
 
 import './scss/main.scss';
 import './App.scss';
@@ -25,7 +25,6 @@ class App extends Component {
 
   render() {
     const { kits, restaurants } = this.state;
-	console.log('Kits render ', kits);
     return (
       <Router>
         <div className="App">
@@ -43,7 +42,7 @@ class App extends Component {
 			  	)
               }
             />
-            <Route exact path="/kit/:id" render={({match: {params}}) => <Kit kit={kits[params.id]} />} />
+            <Route exact path="/kit/:id" render={({match: {params}}) => <Kit kit={kits.find(kit => kit.id === params.id)} />} />
           </Switch>
           <Footer />
         </div>

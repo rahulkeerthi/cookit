@@ -65,7 +65,7 @@ export default function RestaurantItem({ element }) {
 }
 
 RestaurantItem.propTypes = {
-  restaurant: PropTypes.shape({
+  element: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     photos: PropTypes.arrayOf(PropTypes.object),
