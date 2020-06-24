@@ -4,9 +4,6 @@ import Box from '@material-ui/core/Box';
 
 function Library ({ title, elements, Item }) {
 
-    // const { title, elements, card } = props;
-    // console.log('Typeof', typeof(props.card));
-    console.log('Typeof2 ', typeof(Card));
     return (
         <Box>
             <h2>{title}</h2>
