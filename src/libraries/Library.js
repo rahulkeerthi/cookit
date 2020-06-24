@@ -1,9 +1,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import PropTypes from 'prop-types';
 
 function Library ({ title, elements, Item }) {
-
     return (
         <Box>
             <h2>{title}</h2>
@@ -18,4 +18,9 @@ function Library ({ title, elements, Item }) {
     );
 }
 
+Library.propTypes = {
+    title: PropTypes.string,
+    elements: PropTypes.array.isRequired,
+    Item: PropTypes.func.isRequired
+};
 export default Library;

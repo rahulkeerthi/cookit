@@ -55,7 +55,7 @@ export default function KitItem({ element }) {
 }
 
 KitItem.propTypes = {
-  kit: PropTypes.shape({
+  element: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     photos: PropTypes.arrayOf(PropTypes.object),

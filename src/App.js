@@ -4,10 +4,10 @@ import { getKits, getRestaurants } from './api/CookitAPI';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Library from './libraries/Library';
-import Kit from './pages/Kit';
 import Restaurant from './pages/Restaurant';
 import RestaurantItem from './components/RestaurantItem';
 import KitItem from './components/KitItem';
+import Kit from './pages/Kit';
 
 import './scss/main.scss';
 import './App.scss';
