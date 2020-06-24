@@ -10,25 +10,25 @@ if (process.env.NODE_ENV !== 'production') {
 
 const headers = {
   Authorization: `Bearer ${apiKey}`,
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
 };
 
-export const getKits = () =>
-  fetch(`${api}/kits`, { headers })
-    .then((res) => res.json())
-    .then((data) => data);
-    
-export const getKit = (id) =>
-  fetch(`${api}/kits/${id}`, { headers })
-    .then((res) => res.json())
-    .then((data) => data);
+export const getKits = async () => {
+  const response = await fetch(`${api}/kits`, { headers });
+  return response.json();
+};
 
-export const getRestaurants = () =>
-  fetch(`${api}/restaurants`, { headers })
-    .then((res) => res.json())
-    .then((data) => data);
+export const getKit = async (id) => {
+  const response = await fetch(`${api}/kits/${id}`, { headers });
+  return response.json();
+};
 
-export const getRestaurant = (id) =>
-  fetch(`${api}/restaurants/${id}`, { headers })
-    .then((res) => res.json())
-    .then((data) => data);
+export const getRestaurants = async () => {
+  const response = await fetch(`${api}/restaurants`, { headers });
+  return response.json();
+};
+
+export const getRestaurant = async (id) => {
+  const response = await fetch(`${api}/restaurants/${id}`, { headers });
+  return response.json();
+};
