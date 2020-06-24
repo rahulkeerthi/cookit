@@ -52,13 +52,13 @@ export default function KitItem({ element }) {
 
 KitItem.propTypes = {
   kit: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    photos: PropTypes.arrayOf(),
-    price: PropTypes.string.isRequired,
+    photos: PropTypes.arrayOf(PropTypes.object),
+    price: PropTypes.number.isRequired,
     restaurant: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf().isRequired,
+      tags: PropTypes.arrayOf(PropTypes.object).isRequired,
     }).isRequired,
   }).isRequired,
 };

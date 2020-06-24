@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Price from './Price';
 
 const useStyles = makeStyles({
   root: {
@@ -24,7 +23,10 @@ const useStyles = makeStyles({
 
 export default function RestaurantItem({ element }) {
   const classes = useStyles();
-  const { id, photos, name, city, tags, kits } = element;
+
+  const deliveryOptions = element.delivery_options;
+  const kitCount = element.kit_count;
+  const { id, photos, name, tags } = element;
 
   return (
     <Card elevation={3} key={id} className={classes.root}>
@@ -32,7 +34,8 @@ export default function RestaurantItem({ element }) {
         <CardMedia
           className={classes.media}
           image={photos[0].service_url}
-          title="Contemplative Reptile"
+          title={name}
+          alt={name}
         />
         {tags.map((tag) => (
           <Chip key={tag.id} label={tag.name} variant="outlined" m={1} />
@@ -42,13 +45,12 @@ export default function RestaurantItem({ element }) {
             {name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
-            {city}
+            {deliveryOptions}
           </Typography>
-          {/* <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
-            {kits.length > 1 ? `${kits.length} kits ` : `${kits.length} kit `}
+          <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
+            {kitCount > 1 ? `${kitCount} kits ` : `${kitCount} kit `}
             available
-          </Typography> */}
-          {/* <Price price={restaurant.price}/> */}
+          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
@@ -57,11 +59,11 @@ export default function RestaurantItem({ element }) {
 
 RestaurantItem.propTypes = {
   restaurant: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    photos: PropTypes.arrayOf(),
-    city: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf().isRequired,
-    kits: PropTypes.arrayOf().isRequired,
+    photos: PropTypes.arrayOf(PropTypes.object),
+    delivery_options: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.object).isRequired,
+    kit_count: PropTypes.number.isRequired,
   }).isRequired,
 };
