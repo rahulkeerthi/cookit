@@ -1,15 +1,14 @@
 import React from 'react';
 
-const Kit = (props) => {
-  // const { id } = kit;
+const Restaurant = (props) => {
+  const { id } = props;
   return (
     <div>
-      {/* <div>{id}</div> */}
-      <div>Kit Show Page</div>
+      <div>Restaurant Show Page</div>
       <div>Lots of Content</div>
       <div>Look at this</div>
     </div>
   );
 };
 
-export default Kit;
+export default Restaurant;

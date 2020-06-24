@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Library from './libraries/Library';
 import Kit from './pages/Kit';
+import Restaurant from './pages/Restaurant';
 import RestaurantItem from './components/RestaurantItem';
 import KitItem from './components/KitItem';
 
@@ -12,20 +13,19 @@ import './scss/main.scss';
 import './App.scss';
 
 class App extends Component {
-    state = {
-      kits: null,
-	  restaurants: null
-    };
+  state = {
+    kits: null,
+    restaurants: null,
+  };
 
-	async componentDidMount() {
-		const kits = await getKits();
-		const restaurants = await getRestaurants();
-		this.setState({ kits, restaurants });
-  	};
+  async componentDidMount() {
+    const kits = await getKits();
+    const restaurants = await getRestaurants();
+    this.setState({ kits, restaurants });
+  }
 
   render() {
     const { kits, restaurants } = this.state;
-	console.log('Kits render ', kits);
     return (
       <Router>
         <div className="App">
@@ -34,16 +34,37 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => (kits && restaurants && (
-						<div className="LibraryContainer">
-							<Library pb={2} elements={kits} Item={KitItem} title="Our kits" />
-							<Library pb={2} elements={restaurants} Item={RestaurantItem} title="Our restaurants" />
-						</div>
-				  	)
-			  	)
+              render={() =>
+                kits &&
+                restaurants && (
+                  <div className="LibraryContainer">
+                    <Library pb={2} elements={kits} Item={KitItem} title="Our kits" />
+                    <Library
+                      pb={2}
+                      elements={restaurants}
+                      Item={RestaurantItem}
+                      title="Our restaurants"
+                    />
+                  </div>
+                )
               }
             />
-            <Route exact path="/kit/:id" render={({match: {params}}) => <Kit kit={kits[params.id]} />} />
+            <Route
+              exact
+              path="/kit/:id"
+              render={({ match: { params } }) => (
+                <Kit kit={kits.find((kit) => kit.id === params.id)} />
+              )}
+            />
+            <Route
+              exact
+              path="/restaurant/:id"
+              render={({ match: { params } }) => (
+                <Restaurant
+                  restaurant={restaurants.find((restaurant) => restaurant.id === params.id)}
+                />
+              )}
+            />
           </Switch>
           <Footer />
         </div>

@@ -1,3 +1,5 @@
+import { useQuery } from 'react-query';
+
 const api = 'https://api-cookit.herokuapp.com';
 
 let apiKey;
@@ -10,14 +12,14 @@ if (process.env.NODE_ENV !== 'production') {
 
 const headers = {
   Authorization: `Bearer ${apiKey}`,
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
 };
 
 export const getKits = () =>
   fetch(`${api}/kits`, { headers })
     .then((res) => res.json())
     .then((data) => data);
-    
+
 export const getKit = (id) =>
   fetch(`${api}/kits/${id}`, { headers })
     .then((res) => res.json())
