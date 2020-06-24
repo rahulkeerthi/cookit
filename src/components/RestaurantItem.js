@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 const useStyles = makeStyles({
   root: {
     margin: 'auto',
-    width: 350,
+    width: 300,
     maxWidth: 500,
     spacing: 8,
   },
