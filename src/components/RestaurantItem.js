@@ -22,9 +22,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function RestaurantItem({ restaurant }) {
+export default function RestaurantItem({ element }) {
   const classes = useStyles();
-  const { id, photos, name, city, tags, kits } = restaurant;
+  const { id, photos, name, city, tags, kits } = element;
 
   return (
     <Card elevation={3} key={id} className={classes.root}>

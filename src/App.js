@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { getKits, getRestaurants } from './api/CookitAPI';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import KitLibrary from './libraries/KitLibrary';
-import RestaurantLibrary from './libraries/RestaurantLibrary';
+import Library from './libraries/Library';
 import Kit from './pages/Kit';
+import RestaurantItem from './components/RestaurantItem';
+import KitItem from './components/KitItem';
 
 import './scss/main.scss';
 import './App.scss';
@@ -35,10 +36,8 @@ class App extends Component {
               path="/"
               render={() => (kits && restaurants && (
 						<div className="LibraryContainer">
-						<h2>Our kits</h2>
-						<KitLibrary pb={2} kits={kits} />
-						<h2>Our restaurants</h2>
-						<RestaurantLibrary pb={2} restaurants={restaurants} />
+							<Library pb={2} elements={kits} Item={KitItem} title="Our kits" />
+							<Library pb={2} elements={restaurants} Item={RestaurantItem} title="Our restaurants" />
 						</div>
 				  	)
 			  	)
