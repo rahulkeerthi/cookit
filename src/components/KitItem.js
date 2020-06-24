@@ -16,10 +16,14 @@ const useStyles = makeStyles({
     width: 300,
     maxWidth: 500,
     spacing: 8,
+    minHeight: 380,
   },
   media: {
     height: 200,
     marginBottom: 10,
+  },
+  link: {
+    textDecoration: 'none',
   },
 });
 
@@ -28,7 +32,7 @@ export default function KitItem({ kit }) {
   const { id, photos, restaurant, name, price } = kit;
 
   return (
-    <Link to={`kit/${id}`} style={{ textDecoration: 'none' }}>
+    <Link to={`kit/${id}`} className={classes.link}>
       <Card elevation={3} key={id} className={classes.root}>
         <CardActionArea>
           <CardMedia className={classes.media} image={photos[0].service_url} title={name} />
