@@ -33,7 +33,7 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => (kits && (
+              render={() => (kits && restaurants && (
 						<div className="LibraryContainer">
 						<h2>Our kits</h2>
 						<KitLibrary pb={2} kits={kits} />
