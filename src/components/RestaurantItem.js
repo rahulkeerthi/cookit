@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
   root: {
     margin: 'auto',
-    width: 350,
+    width: 300,
     maxWidth: 500,
     spacing: 8,
     minHeight: '100%',
@@ -26,11 +26,12 @@ const useStyles = makeStyles({
   },
 });
 
-export default function RestaurantItem({ restaurant }) {
+export default function RestaurantItem({ element }) {
   const classes = useStyles();
-  const deliveryOptions = restaurant.delivery_options;
-  const kitCount = restaurant.kit_count;
-  const { id, photos, name, tags } = restaurant;
+
+  const deliveryOptions = element.delivery_options;
+  const kitCount = element.kit_count;
+  const { id, photos, name, tags } = element;
 
   return (
     <Link to={`restaurant/${id}`} className={classes.link}>

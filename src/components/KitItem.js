@@ -27,9 +27,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function KitItem({ kit }) {
+export default function KitItem({ element }) {
   const classes = useStyles();
-  const { id, photos, restaurant, name, price } = kit;
+  const { id, photos, restaurant, name, price } = element;
 
   return (
     <Link to={`kit/${id}`} className={classes.link}>
