@@ -27,7 +27,6 @@ const useStyles = makeStyles({
 function Banner({ restaurant }) {
   const classes = useStyles();
   const { id, name, tags, city, description } = restaurant;
-  console.log('Restaurant: ', restaurant);
 
   return (
     <Box className={classes.root} display="flex" alignItems="center" position="static" key={id}>
@@ -46,6 +45,6 @@ function Banner({ restaurant }) {
       </Container>
     </Box>
   );
-}
+};
 
 export default Banner;

@@ -8,15 +8,13 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 const useStyles = makeStyles({
   socialContainer: {
     padding: 0,
-    marginTop: "2rem",
+    margin: "1rem 0",
   },
-
 });
 
 function Social({ restaurant }) {
   const classes = useStyles();
   const { id, name, tags, city, description, twitter, instagram, facebook, email } = restaurant;
-  console.log('Restaurant: ', restaurant);
 
   return (
     <Container className={classes.socialContainer} display="flex">
@@ -34,6 +32,6 @@ function Social({ restaurant }) {
     </a>}
     </Container>
   );
-}
+};
 
 export default Social;
