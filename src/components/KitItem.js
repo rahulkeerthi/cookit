@@ -32,7 +32,7 @@ export default function KitItem({ element }) {
   const { id, photos, restaurant, name, price } = element;
 
   return (
-    <Link to={`kit/${id}`} className={classes.link}>
+    <Link to={`/kit/${id}`} className={classes.link}>
       <Card elevation={3} key={id} className={classes.root}>
         <CardActionArea>
           <CardMedia className={classes.media} image={photos[0].service_url} title={name} />

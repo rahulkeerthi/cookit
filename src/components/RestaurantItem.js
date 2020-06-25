@@ -34,7 +34,7 @@ export default function RestaurantItem({ element }) {
   const { id, photos, name, tags } = element;
 
   return (
-    <Link to={`restaurant/${id}`} className={classes.link}>
+    <Link to={`/restaurant/${id}`} className={classes.link}>
       <Card elevation={3} key={id} className={classes.root}>
         <CardActionArea>
           <CardMedia
