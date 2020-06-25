@@ -78,19 +78,19 @@ const Kit = ({ id }) => {
           {data && (
             <Grid item xs={12} lg={4} xl={4} className={classes.left}>
               <Box>
-                <Typography className={classes.title} variant="h5">
+                <Typography className={classes.title} variant="h4">
                   {data.name}
                 </Typography>
-                <Typography className={classes.price} gutterBottom={true} variant="h6">
+                <Typography className={classes.price} gutterBottom={true} variant="h4">
                   £{data.price}
                 </Typography>
               </Box>
               <Box>
-                <Typography className={classes.description} variant="body1">
+                <Typography className={classes.description} variant="subtitle1">
                   {data.description}
                 </Typography>
                 <Divider style={{ margin: '24px auto', width: 240 }} />
-                <Typography className={classes.subtitle} variant="subtitle2">
+                <Typography className={classes.subtitle} variant="h6">
                   Ingredients:
                 </Typography>
                 <Typography className={classes.ingredients} paragraph={true} variant="body2">
@@ -140,6 +140,8 @@ const Kit = ({ id }) => {
                   onChangeIndex={handleChangeIndex}
                 >
                   <TabPanel value={value} index={0} dir={theme.direction}>
+                    {kitsStatus === 'loading' ? <div>loading...</div> : ''}
+                    {kitsIsFetching === true ? <div>fetching...</div> : ''}
                     {kitsData && (
                       <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} title="" />
                     )}

@@ -40,10 +40,10 @@ export default function KitItem({ element }) {
             <Chip key={tag.id} label={tag.name} variant="outlined" margin="1rem" />
           ))}
           <CardContent>
-            <Typography gutterBottom component="h2">
+            <Typography gutterBottom variant="h5">
               {name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
+            <Typography variant="body1" color="textSecondary" component="p" gutterBottom>
               {restaurant.name}
             </Typography>
             <Price price={price} />
