@@ -29,8 +29,6 @@ function Home() {
       </div>
     ); // error state
   }
-  console.log(kitStatus);
-
   return (
     <div className="LibraryContainer">
       {kitData && <Library pb={2} elements={kitData} Item={KitItem} title="Our kits" />}
