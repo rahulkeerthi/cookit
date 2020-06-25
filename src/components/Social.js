@@ -8,7 +8,7 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 const useStyles = makeStyles({
   socialContainer: {
     padding: 0,
-    margin: "1rem 0",
+    margin: "0 2rem",
   },
 });
 

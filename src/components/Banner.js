@@ -9,9 +9,10 @@ const useStyles = makeStyles({
     color: '#FFFFFF',
     padding: '15px 5%',
     textAlign: 'left',
+    marginBottom: "4px",
   },
   bannerTitle: {
-    marginBottom: '10px',
+    marginBottom: '8px',
   },
   infos: {
     width: 'auto',
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
   chip: {
       color: '#FFFFFF',
       border: "1px solid #FFFFFF",
-      margin: "2px 2px 8px 0",
+      margin: "2px 8px 8px 0",
   }
 });
 
@@ -31,14 +32,16 @@ function Banner({ restaurant }) {
   return (
     <Box className={classes.root} display="flex" alignItems="center" position="static" key={id}>
       <Container className={classes.infos}>
-        <Typography variant="h3" className={classes.bannerTitle}>
+        <Typography variant="h2" className={classes.bannerTitle}>
           {name}
         </Typography>
         <Box>
-            {tags.map((tag) => <Chip className={classes.chip} size="small" color="primary" variant="outlined" label={tag.name} />)}
+            {tags.map((tag) => <Chip className={classes.chip} color="primary" variant="outlined" label={tag.name} />)}
         </Box>
-        <Typography variant="p" marginTop="10px">{city}</Typography>
-        <Social restaurant={restaurant} />
+        <Box display="flex" alignItems="center" marginTop="8px">
+            <Typography variant="h5">{city}</Typography>
+            <Social restaurant={restaurant} />
+        </Box>
       </Container>
       <Container>
         <p>{description}</p>
