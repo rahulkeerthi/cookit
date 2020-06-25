@@ -47,7 +47,6 @@ const useStyles = makeStyles({
     textDecoration: 'none',
   },
 });
->>>>>>> master
 
 const Kit = ({ id }) => {
   const { status, data, isFetching } = useQuery(`${id}`, getKit, { staleTime: Infinity });
@@ -74,93 +73,96 @@ const Kit = ({ id }) => {
     return <div>loading...</div>; // loading state
   }
   return (
-    <Container>
-    <Banner restaurant={data.restaurant} />
-      <Box className={classes.root}>
-        <Grid container>
-          {data && (
-            <Grid item xs={12} lg={4} xl={4} className={classes.left}>
-              <Box>
-                <Typography className={classes.title} variant="h5">
-                  {data.name}
-                </Typography>
-                <Typography className={classes.price} gutterBottom={true} variant="h6">
-                  £{data.price}
-                </Typography>
-              </Box>
-              <Box>
-                <Typography className={classes.description} variant="body1">
-                  {data.description}
-                </Typography>
-                <Divider style={{ margin: '24px auto', width: 240 }} />
-                <Typography className={classes.subtitle} variant="subtitle2">
-                  Ingredients:
-                </Typography>
-                <Typography className={classes.ingredients} paragraph={true} variant="body2">
-                  {' '}
-                  {data.ingredients}
-                </Typography>
-              </Box>
-              <Button
-                className={classes.button}
-                size="large"
-                href={data.link_url}
-                variant="contained"
-                color="primary"
-              >
-                Visit the Website
-              </Button>
-            </Grid>
-          )}
-          <Grid item xs={12} lg={8} xl={8} className={classes.right}>
-            <Grid container>
-              <Grid item className={classes.image}>
-                <Image
-                  src={data.photos[0].service_url}
-                  alt={data.name}
-                  imageStyle={{ margin: '8px', height: '400px', objectFit: 'cover' }}
-                />
-              </Grid>
-            </Grid>
-            <Grid container className={classes.tabContainer}>
-              <Grid item xs={12}>
-                <AppBar position="static" color="default">
-                  <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    variant="fullWidth"
-                    aria-label="full width tabs example"
-                  >
-                    <Tab label={`Other Kits from ${data.restaurant.name}`} {...a11yProps(0)} />
-                    <Tab label="Similar Kits" {...a11yProps(1)} />
-                  </Tabs>
-                </AppBar>
-                <SwipeableViews
-                  axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                  index={value}
-                  onChangeIndex={handleChangeIndex}
+    <>
+      <Banner restaurant={data.restaurant} />
+      <Container>
+        <Box className={classes.root}>
+          <Grid container>
+            {data && (
+              <Grid item xs={12} lg={4} xl={4} className={classes.left}>
+                <Box>
+                  <Typography className={classes.title} variant="h5">
+                    {data.name}
+                  </Typography>
+                  <Typography className={classes.price} gutterBottom={true} variant="h6">
+                    £{data.price}
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography className={classes.description} variant="body1">
+                    {data.description}
+                  </Typography>
+                  <Divider style={{ margin: '24px auto', width: 240 }} />
+                  <Typography className={classes.subtitle} variant="subtitle2">
+                    Ingredients:
+                  </Typography>
+                  <Typography className={classes.ingredients} paragraph={true} variant="body2">
+                    {' '}
+                    {data.ingredients}
+                  </Typography>
+                </Box>
+                <Button
+                  className={classes.button}
+                  size="large"
+                  href={data.link_url}
+                  variant="contained"
+                  color="primary"
+                  target="_blank"
+                  rel="noopener"
                 >
-                  <TabPanel value={value} index={0} dir={theme.direction}>
-                    {kitsData && (
-                      <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} title="" />
-                    )}
-                  </TabPanel>
-                  <TabPanel value={value} index={1} dir={theme.direction}>
-                    {kitsData && (
-                      <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} title="" />
-                    )}
-                  </TabPanel>
-                </SwipeableViews>
+                  Visit the Website
+                </Button>
+              </Grid>
+            )}
+            <Grid item xs={12} lg={8} xl={8} className={classes.right}>
+              <Grid container>
+                <Grid item className={classes.image}>
+                  <Image
+                    src={data.photos[0].service_url}
+                    alt={data.name}
+                    imageStyle={{ margin: '8px', height: '400px', objectFit: 'cover' }}
+                  />
+                </Grid>
+              </Grid>
+              <Grid container className={classes.tabContainer}>
+                <Grid item xs={12}>
+                  <AppBar position="static" color="default">
+                    <Tabs
+                      value={value}
+                      onChange={handleChange}
+                      indicatorColor="primary"
+                      textColor="primary"
+                      variant="fullWidth"
+                      aria-label="full width tabs example"
+                    >
+                      <Tab label={`Other Kits from ${data.restaurant.name}`} {...a11yProps(0)} />
+                      <Tab label="Similar Kits" {...a11yProps(1)} />
+                    </Tabs>
+                  </AppBar>
+                  <SwipeableViews
+                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                    index={value}
+                    onChangeIndex={handleChangeIndex}
+                  >
+                    <TabPanel value={value} index={0} dir={theme.direction}>
+                      {kitsData && (
+                        <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} title="" />
+                      )}
+                    </TabPanel>
+                    <TabPanel value={value} index={1} dir={theme.direction}>
+                      {kitsData && (
+                        <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} title="" />
+                      )}
+                    </TabPanel>
+                  </SwipeableViews>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        {isFetching && <p>updating...</p>}
-      </Box>
-    </Container>
->>>>>>> master
+          {isFetching && <p>updating...</p>}
+        </Box>
+      </Container>
+    </>
   );
 };
 

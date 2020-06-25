@@ -1,15 +1,27 @@
 import React from 'react';
-import Box from '@material-ui/core/Box';
+import { Box, Typography, Container, Chip } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Social from "../components/Social";
 
 const useStyles = makeStyles({
   root: {
-    margin: 'auto',
-    flexGrow: 1,
-    spacing: 8,
     backgroundColor: '#292932',
     color: '#FFFFFF',
+    padding: '15px 5%',
+    textAlign: 'left',
   },
+  bannerTitle: {
+    marginBottom: '10px',
+  },
+  infos: {
+    width: 'auto',
+    minWidth: '40vw',
+  },
+  chip: {
+      color: '#FFFFFF',
+      border: "1px solid #FFFFFF",
+      margin: "2px 2px 8px 0",
+  }
 });
 
 function Banner({ restaurant }) {
@@ -18,13 +30,20 @@ function Banner({ restaurant }) {
   console.log('Restaurant: ', restaurant);
 
   return (
-    <Box className={classes.root} position="static" key={id}>
-      <div>
-        <h1>{name}</h1>
-        <h3>{tags.map((tag) => tag.name + ' ')}</h3>
-        <h3>{city}</h3>
-      </div>
-      <p>{description}</p>
+    <Box className={classes.root} display="flex" alignItems="center" position="static" key={id}>
+      <Container className={classes.infos}>
+        <Typography variant="h3" className={classes.bannerTitle}>
+          {name}
+        </Typography>
+        <Box>
+            {tags.map((tag) => <Chip className={classes.chip} size="small" color="primary" variant="outlined" label={tag.name} />)}
+        </Box>
+        <Typography variant="p" marginTop="10px">{city}</Typography>
+        <Social restaurant={restaurant} />
+      </Container>
+      <Container>
+        <p>{description}</p>
+      </Container>
     </Box>
   );
 }
