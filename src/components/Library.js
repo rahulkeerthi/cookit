@@ -16,7 +16,7 @@ function Library({ title, elements, Item }) {
       </Grid>
     </Box>
   );
-}
+};
 
 Library.propTypes = {
   title: PropTypes.string,
