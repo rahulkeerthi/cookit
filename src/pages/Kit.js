@@ -146,12 +146,14 @@ const Kit = ({ id }) => {
                       {kitsStatus === 'loading' ? <div>loading...</div> : ''}
                       {kitsIsFetching === true ? <div>fetching...</div> : ''}
                       {kitsData && (
-                        <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} title="" />
+                        <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} />
                       )}
                     </TabPanel>
                     <TabPanel value={value} index={1} dir={theme.direction}>
+                      {kitsStatus === 'loading' ? <div>loading...</div> : ''}
+                      {kitsIsFetching === true ? <div>fetching...</div> : ''}
                       {kitsData && (
-                        <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} title="" />
+                        <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} />
                       )}
                     </TabPanel>
                   </SwipeableViews>
