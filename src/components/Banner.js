@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Typography, Container, Chip } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Box, Typography, Container, Chip, makeStyles } from '@material-ui/core';
 import Social from '../components/Social';
 
 const useStyles = makeStyles({
@@ -45,7 +44,13 @@ function Banner({ restaurant }) {
         </Typography>
         <Box>
           {tags.map((tag) => (
-            <Chip className={classes.chip} color="primary" variant="outlined" label={tag.name} />
+            <Chip
+              className={classes.chip}
+              color="primary"
+              variant="outlined"
+              label={tag.name}
+              key={tag.id}
+            />
           ))}
         </Box>
         <Box display="flex" alignItems="center" marginTop="8px">
