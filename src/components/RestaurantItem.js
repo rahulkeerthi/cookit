@@ -13,8 +13,8 @@ const useStyles = makeStyles({
   root: {
     margin: 'auto',
     width: 300,
-    maxWidth: 500,
-    spacing: 8,
+    maxWidth: 560,
+    spacing: 4,
     minHeight: '100%',
   },
   media: {
@@ -23,6 +23,7 @@ const useStyles = makeStyles({
   },
   link: {
     textDecoration: 'none',
+    color: 'black',
   },
 });
 
@@ -34,8 +35,8 @@ export default function RestaurantItem({ element }) {
   const { id, photos, name, tags } = element;
 
   return (
-    <Link to={`/restaurant/${id}`} className={classes.link}>
-      <Card elevation={3} key={id} className={classes.root}>
+    <Card elevation={3} key={id} className={classes.root}>
+      <Link to={`/restaurant/${id}`} className={classes.link}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
@@ -59,8 +60,8 @@ export default function RestaurantItem({ element }) {
             </Typography>
           </CardContent>
         </CardActionArea>
-      </Card>
-    </Link>
+      </Link>
+    </Card>
   );
 }
 

@@ -12,11 +12,17 @@ import Price from './Price';
 
 const useStyles = makeStyles({
   root: {
-    margin: 'auto',
+    // margin: 'auto',
     width: 300,
-    maxWidth: 500,
-    spacing: 8,
-    minHeight: 380,
+    // maxWidth: 400,
+    spacing: 4,
+    minHeight: 400,
+  },
+  kitName: {
+    lineClamp: 2,
+    overflow: 'hidden',
+    display: '-webkit-box',
+    boxOrient: 'vertical',
   },
   media: {
     height: 200,
@@ -24,6 +30,7 @@ const useStyles = makeStyles({
   },
   link: {
     textDecoration: 'none',
+    color: 'black',
   },
 });
 
@@ -32,15 +39,15 @@ export default function KitItem({ element }) {
   const { id, photos, restaurant, name, price } = element;
 
   return (
-    <Link to={`/kit/${id}`} className={classes.link}>
-      <Card elevation={3} key={id} className={classes.root}>
+    <Card elevation={3} key={id} className={classes.root}>
+      <Link to={`/kit/${id}`} className={classes.link}>
         <CardActionArea>
           <CardMedia className={classes.media} image={photos[0].service_url} title={name} />
           {restaurant.tags.map((tag) => (
             <Chip key={tag.id} label={tag.name} variant="outlined" margin="1rem" />
           ))}
           <CardContent>
-            <Typography gutterBottom variant="h5">
+            <Typography className={classes.kitName} gutterBottom variant="h6">
               {name}
             </Typography>
             <Typography variant="body1" color="textSecondary" component="p" gutterBottom>
@@ -49,8 +56,8 @@ export default function KitItem({ element }) {
             <Price price={price} />
           </CardContent>
         </CardActionArea>
-      </Card>
-    </Link>
+      </Link>
+    </Card>
   );
 }
 
