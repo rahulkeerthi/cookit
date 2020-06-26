@@ -1,5 +1,4 @@
 import './scss/main.scss';
-import './App.scss';
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
@@ -11,7 +10,7 @@ import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
 const theme = createMuiTheme({
   typography: {
     fontFamily: [
-      'IM Fell English',
+      '"IM Fell English"',
       '-apple-system',
       'serif',
       '"Apple Color Emoji"',
