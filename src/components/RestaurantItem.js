@@ -47,13 +47,13 @@ export default function RestaurantItem({ element }) {
             <Chip key={tag.id} label={tag.name} variant="outlined" m={1} />
           ))}
           <CardContent>
-            <Typography gutterBottom component="h2">
+            <Typography gutterBottom variant="h5">
               {name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
+            <Typography color="textSecondary" variant="body1" gutterBottom>
               {deliveryOptions}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
+            <Typography color="textSecondary" variant="body1" gutterBottom>
               {kitCount > 1 ? `${kitCount} kits ` : `${kitCount} kit `}
               available
             </Typography>

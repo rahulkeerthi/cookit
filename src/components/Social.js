@@ -14,27 +14,27 @@ const useStyles = makeStyles({
 
 function Social({ restaurant }) {
   const classes = useStyles();
-  const { id, name, tags, city, description, twitter, instagram, facebook, email } = restaurant;
+  const { twitter, instagram, facebook, email } = restaurant;
 
   return (
     <Container className={classes.socialContainer} display="flex">
       {facebook && (
-        <a href={facebook} className="social" target="_blank" rel="noopener">
+        <a href={facebook} className="social" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faFacebook} size="2x" />
         </a>
       )}
       {instagram && (
-        <a href={instagram} className="social" target="_blank" rel="noopener">
+        <a href={instagram} className="social" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faInstagram} size="2x" />
         </a>
       )}
       {twitter && (
-        <a href={twitter} className="social" target="_blank" rel="noopener">
+        <a href={twitter} className="social" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faTwitter} size="2x" />
         </a>
       )}
       {email && (
-        <a href={'mailto:' + email} className="social" target="_blank" rel="noopener">
+        <a href={'mailto:' + email} className="social" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faEnvelope} size="2x" />
         </a>
       )}

@@ -1,7 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -73,7 +72,7 @@ function SearchAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title} variant="h4" noWrap>
             <Link
               to="/"
               style={{ textDecoration: 'none', color: 'white', textTransform: 'uppercase' }}
@@ -81,11 +80,6 @@ function SearchAppBar() {
               Cookit
             </Link>
           </Typography>
-          <Button color="secondary">
-            <Link to="/about" style={{ textDecoration: 'none', color: 'white' }}>
-              About
-            </Link>
-          </Button>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

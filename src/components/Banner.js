@@ -23,6 +23,14 @@ const useStyles = makeStyles({
     border: '1px solid #FFFFFF',
     margin: '2px 8px 8px 0',
   },
+  description: {
+    lineHeight: '1.2rem',
+    fontSize: '.9rem',
+    display: '-webkit-box',
+    lineClamp: 6,
+    boxOrient: 'vertical',
+    overflow: 'hidden',
+  },
 });
 
 function Banner({ restaurant }) {
@@ -46,7 +54,9 @@ function Banner({ restaurant }) {
         </Box>
       </Container>
       <Container>
-        <p>{description}</p>
+        <Typography className={classes.description} variant="subtitle1">
+          {description}
+        </Typography>
       </Container>
     </Box>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useQuery } from 'react-query';
 import Banner from '../components/Banner';
 import { getKit, getKits } from '../api/CookitAPI';
@@ -73,7 +73,7 @@ const Kit = ({ id }) => {
     return <div>loading...</div>; // loading state
   }
   return (
-    <>
+    <Fragment>
       <Banner restaurant={data.restaurant} />
       <Container>
         <Box className={classes.root}>
@@ -81,19 +81,19 @@ const Kit = ({ id }) => {
             {data && (
               <Grid item xs={12} lg={4} xl={4} className={classes.left}>
                 <Box>
-                  <Typography className={classes.title} variant="h5">
+                  <Typography className={classes.title} variant="h4">
                     {data.name}
                   </Typography>
-                  <Typography className={classes.price} gutterBottom={true} variant="h6">
+                  <Typography className={classes.price} gutterBottom={true} variant="h4">
                     £{data.price}
                   </Typography>
                 </Box>
                 <Box>
-                  <Typography className={classes.description} variant="body1">
+                  <Typography className={classes.description} variant="subtitle1">
                     {data.description}
                   </Typography>
                   <Divider style={{ margin: '24px auto', width: 240 }} />
-                  <Typography className={classes.subtitle} variant="subtitle2">
+                  <Typography className={classes.subtitle} variant="h6">
                     Ingredients:
                   </Typography>
                   <Typography className={classes.ingredients} paragraph={true} variant="body2">
@@ -107,8 +107,6 @@ const Kit = ({ id }) => {
                   href={data.link_url}
                   variant="contained"
                   color="primary"
-                  target="_blank"
-                  rel="noopener"
                 >
                   Visit the Website
                 </Button>
@@ -145,6 +143,8 @@ const Kit = ({ id }) => {
                     onChangeIndex={handleChangeIndex}
                   >
                     <TabPanel value={value} index={0} dir={theme.direction}>
+                      {kitsStatus === 'loading' ? <div>loading...</div> : ''}
+                      {kitsIsFetching === true ? <div>fetching...</div> : ''}
                       {kitsData && (
                         <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} title="" />
                       )}
@@ -162,7 +162,7 @@ const Kit = ({ id }) => {
           {isFetching && <p>updating...</p>}
         </Box>
       </Container>
-    </>
+    </Fragment>
   );
 };
 

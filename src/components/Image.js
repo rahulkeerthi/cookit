@@ -12,6 +12,7 @@ export default class Image extends Component {
       imageError: false,
       imageLoaded: false,
       src: this.props.src,
+      alt: this.props.alt,
     };
   }
 
@@ -29,7 +30,7 @@ export default class Image extends Component {
   getStyles() {
     const {
       animationDuration,
-      aspectRatio,
+      // aspectRatio,
       color,
       imageStyle,
       disableTransition,
@@ -123,6 +124,7 @@ export default class Image extends Component {
             style={styles.image}
             onLoad={this.handleLoadImage}
             onError={this.handleImageError}
+            alt={this.alt}
           />
         )}
         <div style={styles.iconContainer}>
