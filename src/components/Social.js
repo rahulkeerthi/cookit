@@ -11,17 +11,9 @@ const useStyles = makeStyles({
   },
   social: {
     color: 'inherit',
-    padding: '0.3rem',
-    transition: 'transform 250ms',
-    // '&:hover': {
-    //   color: 'red',
-    // },
-    // marginRight: '1rem',
-  },
-  hover: {
+    padding: '0.35rem',
     '&:hover': {
-      color: 'red',
-      transform: 'translateY(-2px)',
+      color: '#4050b5',
     },
   },
 });
@@ -35,8 +27,9 @@ function Social({ restaurant }) {
       {facebook && (
         <Link
           href={facebook}
-          classes={{ root: classes.social, underlineHover: classes.hover }}
-          // className={classes.social}
+          underline="none"
+          // classes={{ root: classes.social, underlineNone: classes.hover }}
+          className={classes.social}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -44,29 +37,19 @@ function Social({ restaurant }) {
         </Link>
       )}
       {instagram && (
-        <Link
-          href={instagram}
-          classes={{ root: classes.social, underlineHover: classes.hover }}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link href={instagram} className={classes.social} target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faInstagram} size="2x" />
         </Link>
       )}
       {twitter && (
-        <Link
-          href={twitter}
-          classes={{ root: classes.social, underlineHover: classes.hover }}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link href={twitter} className={classes.social} target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faTwitter} size="2x" />
         </Link>
       )}
       {email && (
         <Link
           href={'mailto:' + email}
-          classes={{ root: classes.social, underlineHover: classes.hover }}
+          className={classes.social}
           target="_blank"
           rel="noopener noreferrer"
         >

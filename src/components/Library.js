@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
   root: {
-    margin: 0,
+    margin: '0 0 60px 0',
     textAlign: 'center',
   },
   grid: {
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
   title: {
     textTransform: 'uppercase',
-    margin: '16px auto',
+    margin: '24px auto',
   },
 });
 
