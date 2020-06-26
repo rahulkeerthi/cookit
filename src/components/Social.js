@@ -28,7 +28,6 @@ function Social({ restaurant }) {
         <Link
           href={facebook}
           underline="none"
-          // classes={{ root: classes.social, underlineNone: classes.hover }}
           className={classes.social}
           target="_blank"
           rel="noopener noreferrer"
