@@ -7,6 +7,7 @@ import { Tabs, Tab, TabList, TabPanel } from 'react-tabs';
 import Image from '../components/Image';
 import TabLibrary from '../components/TabLibrary';
 import TabKitItem from '../components/TabKitItem';
+import '../components/Tab.scss';
 
 const useStyles = makeStyles({
   root: {
@@ -37,9 +38,8 @@ const Kit = ({ id }) => {
     getKits,
     { staleTime: Infinity },
   );
-  const classes = useStyles();
 
-  // const { name, photos, price, restaurant, description, ingredients, link_url } = data;
+  const classes = useStyles();
 
   if (status === 'loading') {
     return <div>loading...</div>; // loading state
@@ -98,7 +98,7 @@ const Kit = ({ id }) => {
                     }}
                   />
                   {/* <Image
-                    src={data.photos[0].service_url}
+                    src={data.service_urls[0]}
                     alt={data.name}
                     imageStyle={{ margin: '8px', height: '400px', objectFit: 'cover' }}
                   /> */}

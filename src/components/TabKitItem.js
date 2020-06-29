@@ -51,13 +51,13 @@ const useStyles = makeStyles({
 
 export default function KitItem({ element }) {
   const classes = useStyles();
-  const { id, photos, restaurant, name, price } = element;
+  const { id, service_urls, restaurant, tag_names, name, price } = element;
 
   return (
     <Card elevation={3} key={id} className={classes.root}>
       <Link to={`/kit/${id}`} className={classes.link}>
         <CardActionArea className={classes.actionArea}>
-          {/* <CardMedia className={classes.media} image={photos[0].service_url} title={name} /> */}
+          {/* <CardMedia className={classes.media} image={service_urls[0]} title={name} /> */}
           <CardMedia
             className={classes.media}
             image="https://source.unsplash.com/800x450/?food,dish"
@@ -71,8 +71,8 @@ export default function KitItem({ element }) {
               {restaurant.name}
             </Typography>
             <Price price={price} />
-            {restaurant.tags.map((tag) => (
-              <Chip key={tag.id} label={tag.name} className={classes.chip} margin="1rem" />
+            {tag_names.map((tag) => (
+              <Chip key={tag} label={tag} className={classes.chip} margin="1rem" />
             ))}
           </CardContent>
         </CardActionArea>
@@ -89,7 +89,7 @@ KitItem.propTypes = {
     price: PropTypes.number.isRequired,
     restaurant: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf(PropTypes.object).isRequired,
     }).isRequired,
+    tag_names: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
 };
