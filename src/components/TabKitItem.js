@@ -51,7 +51,7 @@ const useStyles = makeStyles({
 
 export default function KitItem({ element }) {
   const classes = useStyles();
-  const { id, photos, restaurant, name, price } = element;
+  const { id, photos, restaurant, tags, name, price } = element;
 
   return (
     <Card elevation={3} key={id} className={classes.root}>
@@ -71,7 +71,7 @@ export default function KitItem({ element }) {
               {restaurant.name}
             </Typography>
             <Price price={price} />
-            {restaurant.tags.map((tag) => (
+            {tags.map((tag) => (
               <Chip key={tag.id} label={tag.name} className={classes.chip} margin="1rem" />
             ))}
           </CardContent>

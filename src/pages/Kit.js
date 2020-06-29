@@ -37,9 +37,8 @@ const Kit = ({ id }) => {
     getKits,
     { staleTime: Infinity },
   );
-  const classes = useStyles();
 
-  // const { name, photos, price, restaurant, description, ingredients, link_url } = data;
+  const classes = useStyles();
 
   if (status === 'loading') {
     return <div>loading...</div>; // loading state

@@ -12,9 +12,7 @@ import Price from './Price';
 
 const useStyles = makeStyles({
   root: {
-    // margin: 'auto',
     width: 300,
-    // maxWidth: 400,
     spacing: 4,
     minHeight: 400,
   },
@@ -36,7 +34,7 @@ const useStyles = makeStyles({
 
 export default function KitItem({ element }) {
   const classes = useStyles();
-  const { id, photos, restaurant, name, price } = element;
+  const { id, photos, restaurant, tags, name, price } = element;
 
   return (
     <Card elevation={3} key={id} className={classes.root}>
@@ -48,7 +46,7 @@ export default function KitItem({ element }) {
             image="https://source.unsplash.com/800x450/?food,dish"
             title={name}
           />
-          {restaurant.tags.map((tag) => (
+          {tags.map((tag) => (
             <Chip key={tag.id} label={tag.name} variant="outlined" margin="1rem" />
           ))}
           <CardContent>
@@ -72,9 +70,9 @@ KitItem.propTypes = {
     name: PropTypes.string.isRequired,
     photos: PropTypes.arrayOf(PropTypes.object),
     price: PropTypes.number.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.object).isRequired,
     restaurant: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      tags: PropTypes.arrayOf(PropTypes.object).isRequired,
     }).isRequired,
   }).isRequired,
 };
