@@ -42,7 +42,12 @@ export default function KitItem({ element }) {
     <Card elevation={3} key={id} className={classes.root}>
       <Link to={`/kit/${id}`} className={classes.link}>
         <CardActionArea>
-          <CardMedia className={classes.media} image={photos[0].service_url} title={name} />
+          {/* <CardMedia className={classes.media} image={photos[0].service_url} title={name} /> */}
+          <CardMedia
+            className={classes.media}
+            image="https://source.unsplash.com/800x450/?food,dish"
+            title={name}
+          />
           {restaurant.tags.map((tag) => (
             <Chip key={tag.id} label={tag.name} variant="outlined" margin="1rem" />
           ))}
