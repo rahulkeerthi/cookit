@@ -15,14 +15,12 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     display: 'none',
     textDecoration: 'none',
-    color: 'white',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
   },
   link: {
     textDecoration: 'none',
-    color: 'white',
   },
   search: {
     position: 'relative',
@@ -69,8 +67,8 @@ function SearchAppBar() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+    <div>
+      <AppBar position="static" className={classes.root}>
         <Toolbar>
           <Typography className={classes.title} variant="h4" noWrap>
             <Link
