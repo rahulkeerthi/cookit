@@ -1,3 +1,6 @@
+import React from 'react';
+import { Highlight } from 'react-instantsearch-dom';
+
 const Hit = ({ hit }) => (
   <a href={'/'}>
     <div className="card">
@@ -16,3 +19,5 @@ const Hit = ({ hit }) => (
     </div>
   </a>
 );
+
+export default Hit;
