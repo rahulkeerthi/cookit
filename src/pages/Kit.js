@@ -2,31 +2,11 @@ import React, { Fragment } from 'react';
 import { useQuery } from 'react-query';
 import Banner from '../components/Banner';
 import { getKit, getKits } from '../api/CookitAPI';
-import {
-  AppBar,
-  Tabs,
-  Tab,
-  Box,
-  Button,
-  Container,
-  Grid,
-  makeStyles,
-  useTheme,
-  Typography,
-  Divider,
-} from '@material-ui/core';
+import { Box, Button, Container, Grid, makeStyles, Typography, Divider } from '@material-ui/core';
+import { Tabs, Tab, TabList, TabPanel } from 'react-tabs';
 import Image from '../components/Image';
-import SwipeableViews from 'react-swipeable-views';
-import TabPanel from '../components/TabPanel';
-import Library from '../components/Library';
-import KitItem from '../components/KitItem';
-
-function a11yProps(index) {
-  return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  };
-}
+import TabLibrary from '../components/TabLibrary';
+import TabKitItem from '../components/TabKitItem';
 
 const useStyles = makeStyles({
   root: {
@@ -35,6 +15,7 @@ const useStyles = makeStyles({
   },
   left: {
     textAlign: 'left',
+    paddingRight: 16,
   },
   right: {},
   image: {
@@ -42,6 +23,7 @@ const useStyles = makeStyles({
   },
   tabContainer: {
     marginTop: 72,
+    width: '100%',
   },
   link: {
     textDecoration: 'none',
@@ -56,16 +38,6 @@ const Kit = ({ id }) => {
     { staleTime: Infinity },
   );
   const classes = useStyles();
-  const theme = useTheme();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
 
   // const { name, photos, price, restaurant, description, ingredients, link_url } = data;
 
@@ -118,7 +90,12 @@ const Kit = ({ id }) => {
                   <Image
                     src="https://source.unsplash.com/800x450/?food,dish"
                     alt={data.name}
-                    imageStyle={{ margin: '8px', height: '400px', objectFit: 'cover' }}
+                    imageStyle={{
+                      margin: '8px',
+                      height: '400px',
+                      objectFit: 'cover',
+                      width: '100%',
+                    }}
                   />
                   {/* <Image
                     src={data.photos[0].service_url}
@@ -127,43 +104,24 @@ const Kit = ({ id }) => {
                   /> */}
                 </Grid>
               </Grid>
-              <Grid container className={classes.tabContainer}>
-                <Grid item xs={12}>
-                  <AppBar position="static" color="default">
-                    <Tabs
-                      value={value}
-                      onChange={handleChange}
-                      indicatorColor="primary"
-                      textColor="primary"
-                      variant="fullWidth"
-                      aria-label="full width tabs example"
-                    >
-                      <Tab label={`Other Kits from ${data.restaurant.name}`} {...a11yProps(0)} />
-                      <Tab label="Similar Kits" {...a11yProps(1)} />
-                    </Tabs>
-                  </AppBar>
-                  <SwipeableViews
-                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                    index={value}
-                    onChangeIndex={handleChangeIndex}
-                  >
-                    <TabPanel value={value} index={0} dir={theme.direction}>
-                      {kitsStatus === 'loading' ? <div>loading...</div> : ''}
-                      {kitsIsFetching === true ? <div>fetching...</div> : ''}
-                      {kitsData && (
-                        <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} />
-                      )}
-                    </TabPanel>
-                    <TabPanel value={value} index={1} dir={theme.direction}>
-                      {kitsStatus === 'loading' ? <div>loading...</div> : ''}
-                      {kitsIsFetching === true ? <div>fetching...</div> : ''}
-                      {kitsData && (
-                        <Library pb={4} elements={kitsData.slice(0, 2)} Item={KitItem} />
-                      )}
-                    </TabPanel>
-                  </SwipeableViews>
-                </Grid>
-              </Grid>
+              <Box className={classes.tabContainer}>
+                <Tabs>
+                  <TabList>
+                    <Tab>{`Other Kits from ${data.restaurant.name}`}</Tab>
+                    <Tab>Similar Kits</Tab>
+                  </TabList>
+                  <TabPanel>
+                    {kitsStatus === 'loading' ? <div>loading...</div> : ''}
+                    {kitsIsFetching === true ? <div>fetching...</div> : ''}
+                    {kitsData && <TabLibrary elements={kitsData.slice(0, 2)} item={TabKitItem} />}
+                  </TabPanel>
+                  <TabPanel>
+                    {kitsStatus === 'loading' ? <div>loading...</div> : ''}
+                    {kitsIsFetching === true ? <div>fetching...</div> : ''}
+                    {kitsData && <TabLibrary elements={kitsData.slice(2, 4)} item={TabKitItem} />}
+                  </TabPanel>
+                </Tabs>
+              </Box>
             </Grid>
           </Grid>
           {isFetching && <p>updating...</p>}
