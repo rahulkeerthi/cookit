@@ -32,7 +32,7 @@ export default function RestaurantItem({ element }) {
 
   const deliveryOptions = element.delivery_options;
   const kitCount = element.kit_count;
-  const { id, photos, name, tags } = element;
+  const { id, service_urls, name, tag_names } = element;
 
   return (
     <Card elevation={3} key={id} className={classes.root}>
@@ -40,7 +40,7 @@ export default function RestaurantItem({ element }) {
         <CardActionArea>
           {/* <CardMedia
             className={classes.media}
-            image={photos[0].service_url}
+            image={service_urls[0]}
             title={name}
             alt={name}
           /> */}
@@ -50,8 +50,8 @@ export default function RestaurantItem({ element }) {
             title={name}
             alt={name}
           />
-          {tags.map((tag) => (
-            <Chip key={tag.id} label={tag.name} variant="outlined" m={1} />
+          {tag_names.map((tag) => (
+            <Chip key={tag} label={tag} variant="outlined" m={1} />
           ))}
           <CardContent>
             <Typography gutterBottom variant="h5">
