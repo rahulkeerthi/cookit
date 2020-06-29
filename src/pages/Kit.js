@@ -116,10 +116,15 @@ const Kit = ({ id }) => {
               <Grid container>
                 <Grid item className={classes.image}>
                   <Image
-                    src={data.photos[0].service_url}
+                    src="https://source.unsplash.com/800x450/?food,dish"
                     alt={data.name}
                     imageStyle={{ margin: '8px', height: '400px', objectFit: 'cover' }}
                   />
+                  {/* <Image
+                    src={data.photos[0].service_url}
+                    alt={data.name}
+                    imageStyle={{ margin: '8px', height: '400px', objectFit: 'cover' }}
+                  /> */}
                 </Grid>
               </Grid>
               <Grid container className={classes.tabContainer}>

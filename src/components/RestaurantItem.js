@@ -38,9 +38,15 @@ export default function RestaurantItem({ element }) {
     <Card elevation={3} key={id} className={classes.root}>
       <Link to={`/restaurant/${id}`} className={classes.link}>
         <CardActionArea>
-          <CardMedia
+          {/* <CardMedia
             className={classes.media}
             image={photos[0].service_url}
+            title={name}
+            alt={name}
+          /> */}
+          <CardMedia
+            className={classes.media}
+            image="https://source.unsplash.com/800x450/?restaurant"
             title={name}
             alt={name}
           />
