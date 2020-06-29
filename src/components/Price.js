@@ -5,13 +5,17 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
   root: {
-    fontWeight: 600,
+    // fontWeight: 600,
   },
 });
 
 export default function Hook({ price }) {
   const classes = useStyles();
-  return <Typography className={classes.root}>£{price}</Typography>;
+  return (
+    <Typography variant="h6" className={classes.root}>
+      £{price}
+    </Typography>
+  );
 }
 
 Hook.propTypes = {
