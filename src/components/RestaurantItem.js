@@ -32,7 +32,7 @@ export default function RestaurantItem({ element }) {
 
   const deliveryOptions = element.delivery_options;
   const kitCount = element.kit_count;
-  const { id, photos, name, tags } = element;
+  const { id, photos, name, tag_names } = element;
 
   return (
     <Card elevation={3} key={id} className={classes.root}>
@@ -50,8 +50,8 @@ export default function RestaurantItem({ element }) {
             title={name}
             alt={name}
           />
-          {tags.map((tag) => (
-            <Chip key={tag.id} label={tag.name} variant="outlined" m={1} />
+          {tag_names.map((tag) => (
+            <Chip key={tag_names.indexOf(tag)} label={tag} variant="outlined" m={1} />
           ))}
           <CardContent>
             <Typography gutterBottom variant="h5">
@@ -77,7 +77,7 @@ RestaurantItem.propTypes = {
     name: PropTypes.string.isRequired,
     photos: PropTypes.arrayOf(PropTypes.object),
     delivery_options: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.object).isRequired,
+    tag_names: PropTypes.arrayOf(PropTypes.string).isRequired,
     kit_count: PropTypes.number.isRequired,
   }).isRequired,
 };
