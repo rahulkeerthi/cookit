@@ -2,6 +2,7 @@ import React from 'react';
 import Library from '../components/Library';
 import RestaurantItem from '../components/RestaurantItem';
 import KitItem from '../components/KitItem';
+import SearchBar from '../components/searchComponents/SearchBar';
 import { getKits, getRestaurants } from '../api/CookitAPI';
 import { useQuery } from 'react-query';
 import { Container } from '@material-ui/core';
@@ -32,6 +33,7 @@ function Home() {
   }
   return (
     <Container>
+      <SearchBar />
       {kitData && <Library pb={2} elements={kitData} Item={KitItem} title="Our kits" />}
       {restData && (
         <Library pb={2} elements={restData} Item={RestaurantItem} title="Our restaurants" />
