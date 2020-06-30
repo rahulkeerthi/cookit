@@ -2,11 +2,7 @@ const api = 'https://api-cookit.herokuapp.com';
 
 let apiKey;
 
-if (process.env.NODE_ENV !== 'production') {
-  apiKey = process.env.REACT_APP_HEROKU_BEARER_TOKEN;
-} else {
-  apiKey = process.env.HEROKU_BEARER_TOKEN;
-}
+apiKey = process.env.REACT_APP_HEROKU_BEARER_TOKEN;
 
 const headers = {
   Authorization: `Bearer ${apiKey}`,
