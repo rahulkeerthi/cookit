@@ -11,6 +11,7 @@ if (process.env.NODE_ENV !== 'production') {
 const headers = {
   Authorization: `Bearer ${apiKey}`,
   'Content-Type': 'application/json',
+  Accept: 'application/json',
 };
 
 export const getKits = async () => {

@@ -75,9 +75,9 @@ RestaurantItem.propTypes = {
   element: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    photos: PropTypes.arrayOf(PropTypes.object),
+    service_urls: PropTypes.arrayOf(PropTypes.string),
     delivery_options: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.object).isRequired,
+    tag_names: PropTypes.arrayOf(PropTypes.string).isRequired,
     kit_count: PropTypes.number.isRequired,
   }).isRequired,
 };
