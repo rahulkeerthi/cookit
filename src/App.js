@@ -13,8 +13,8 @@ const theme = createMuiTheme({
       '-apple-system',
       'serif',
       '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
+      '"Segoe UI Emoji"',
     ].join(','),
     subtitle1: {
       fontFamily: ['Lato', 'sans-serif'].join(','),
