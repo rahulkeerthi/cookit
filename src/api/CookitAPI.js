@@ -1,8 +1,8 @@
+require('dotenv').config();
+
 const api = 'https://api-cookit.herokuapp.com';
 
-let apiKey;
-
-apiKey = process.env.REACT_APP_HEROKU_BEARER_TOKEN;
+const apiKey = process.env.REACT_APP_HEROKU_BEARER_TOKEN;
 
 const headers = {
   Authorization: `Bearer ${apiKey}`,
