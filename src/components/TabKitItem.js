@@ -51,7 +51,7 @@ const useStyles = makeStyles({
 
 export default function KitItem({ element }) {
   const classes = useStyles();
-  const { id, service_urls, restaurant, tag_names, name, price } = element;
+  const { id, restaurant, tag_names, name, price } = element;
 
   return (
     <Card elevation={3} key={id} className={classes.root}>

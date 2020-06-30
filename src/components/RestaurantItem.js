@@ -32,7 +32,7 @@ export default function RestaurantItem({ element }) {
 
   const deliveryOptions = element.delivery_options;
   const kitCount = element.kit_count;
-  const { id, service_urls, name, tag_names } = element;
+  const { id, name, tag_names } = element;
 
   return (
     <Card elevation={3} key={id} className={classes.root}>
